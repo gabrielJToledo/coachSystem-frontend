@@ -1,0 +1,78 @@
+.c-accountContainer {
+    grid-area: account;
+    background-color: #1b1c1e;
+    border-top: 2px solid #242527;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 25%;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.c-accountContainer__accountTextContainer {
+    width: 80%;
+    padding: 20px 0;
+    color: #4e4f51;
+    font-weight: bolder;
+    font-size: .8rem;
+}
+
+.c-accountContainer__avatarContainer {
+    width: 80%;
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.c-accountContainer__nameAccount {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-accountContainer__avatar {
+    border-radius: 50%;
+}
+
+.c-accountContainer__span {
+    color: white;
+}
+
+.c-accountContainer__icon {
+    color: white;
+    cursor: pointer;
+}
+
+.c-accountContainer__spanFunction {
+    color: #4e4f51;
+}
+
+.c-logout {
+    color: #87888a;
+    background-color:  #323335;
+    border-radius: 8px;
+    width: 80%;
+    margin-top:10px;
+    padding: 10px 5px;
+    display: flex;
+    cursor: pointer;
+}
+
+.c-logout__icon {
+    margin: 0px 15px;
+    color: #cfd1d0;
+}
+
+.c-logout__span {
+    color: #cfd1d0;
+}
+
+/* ToggleMenuTrue */
+
+.c-accountContainer.toggleMenuTrue {
+    display: none;
+}

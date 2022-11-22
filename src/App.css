@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+* {
+  font-family: 'Tinos', serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: rgb(218, 218, 218);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #898989;
 }
 
-.App-link {
-  color: #61dafb;
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(43, 43, 43);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 70px 1fr 50px;
+  grid-template-areas: 
+    "menu header"
+    "menu content"
+    "account footer";
+  height: 100vh;
+}
+
+.c-menuContent__division {
+  border-bottom: solid 1px black;
+}
+
+
+/* ToggleMenu */
+
+.app.toggleMenuTrue {
+  grid-template-columns: 1fr;
+  grid-template-rows: 70px 1fr 50px;
+  grid-template-areas: 
+    "header"
+    "content"
+    "footer";
 }

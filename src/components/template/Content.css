@@ -1,0 +1,4 @@
+.content {
+    grid-area: content;
+    box-shadow: rgba(0, 0, 0, 0.242) 0px 5px 6px 0px inset;
+}

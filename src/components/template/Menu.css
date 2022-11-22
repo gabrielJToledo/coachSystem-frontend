@@ -1,0 +1,121 @@
+.menu {
+    grid-area: menu;
+    background-color: #1b1c1e;
+    box-shadow: rgba(0, 0, 0, 0.242) 0px 5px 6px 0px inset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 75%;
+    position: fixed;
+}
+
+.c-menuContent {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.c-menuContent_menuLinks {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+li.c-menuContent__li {
+    list-style-type: none;
+    font-size: 1.1rem;
+    display: flex;
+    padding: 10px 0px 10px 15px;
+}
+
+.c-menuContent__link {
+    text-decoration: none;
+    color: #87888a;
+
+    border-radius: 8px;
+    margin: 2px 0;
+    transition: 0.2s;
+}
+
+.c-menuContent__link:hover {
+    background-color: #323335;
+    color: #d2d2d2;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.c-logo {
+    height: 70px;
+}
+
+.c-logo__img {
+ width: 100%;
+ padding: 10px 0;
+ height: 90%;
+ object-fit: contain;
+}
+
+.c-menuContent__menuSearchContainer {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    border-bottom: 2px solid #242527;
+    padding: 10px 0;
+}
+
+.c-menuContent__menuSearch {
+    width: 80%;
+    background-color: rgba(0, 0, 255, 0);
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.c-menuContent__icon {
+    color: #87888a;
+    width: 20px;
+    height: 20px;
+}
+
+.c-menuContent__li > .c-menuContent__icon {
+    margin-right: 20px;
+}
+
+.c-menuContent__menuTextContainer {
+    width: 90%;
+    padding: 5px 0;
+    color: #4e4f51;
+    font-weight: bolder;
+    font-size: .8rem;
+}
+
+.c-menu__iconToggleMenuFalse {
+    width: 15px;
+    height: 15px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid #87888a;
+}
+
+.c-menu__toggleMenuFalse {
+    position: absolute;
+    left: 235px;
+    top: 25px;
+    cursor: pointer;
+}
+
+/* ToggleMenu True */
+
+.menu.toggleMenuTrue {
+    display: none;
+}
+
+.c-img__prof {
+    height: 120px;
+    object-fit: cover;
+}
