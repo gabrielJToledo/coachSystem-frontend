@@ -52,3 +52,11 @@ body {
     "content"
     "footer";
 }
+
+.app.header-none {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 50px;
+  grid-template-areas: 
+    "content"
+    "footer";
+}

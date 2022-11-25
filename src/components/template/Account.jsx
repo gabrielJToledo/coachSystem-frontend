@@ -7,11 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector } from 'react-redux'
 
 function Account() {
-    // ToggleMenu //
+    // ToggleMenu | UserSignin //
     const toggleMenuValue = useSelector((state) => state.setToggleMenu.toggleMenuValue)
+    const userSigninValue = useSelector((state) => state.setUserSignin.userSign)
 
     return (
-        <section className={`c-accountContainer ${toggleMenuValue === true ? 'toggleMenuTrue' : ''}`} >
+        <section className={`c-accountContainer ${toggleMenuValue === true ? 'toggleMenuTrue' : ''} ${userSigninValue === true ? '' : 'd-none'}`} >
             <div className="c-accountContainer__accountTextContainer p-2">
                 <h2 className='m-0 p-0 fs-6 text-uppercase fw-bold'>Usuário</h2>
             </div>

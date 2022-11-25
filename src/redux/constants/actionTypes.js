@@ -1,3 +1,5 @@
 export const actionTypes = {
-    changedToggleMenu: 'changedToggleMenu'
+    changedToggleMenu: 'changedToggleMenu',
+    changedUserSignin: 'changedUserSignin',
+    changedUserPayload: 'changedUserPayload',
 }

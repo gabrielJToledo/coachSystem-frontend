@@ -1,6 +1,7 @@
-// Logo Image
+// Images
 export const logo = require('./assets/logo.png')
 export const prof = require('./assets/prof-01.jpg')
+export const authImage = require('./assets/authImage.jpg')
 
 // Menus
 export let menus = new Array()

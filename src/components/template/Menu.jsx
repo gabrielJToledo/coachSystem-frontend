@@ -13,8 +13,11 @@ import { useDispatch, useSelector } from 'react-redux'
 function Menu() {
   const dispatch = useDispatch()
 
-  // ToggleMenu Changes
+  // ToggleMenu Changes | userSigninValue
   const toggleMenuValue = useSelector((state) => state.setToggleMenu.toggleMenuValue)
+  const userSigninValue = useSelector((state) => state.setUserSignin.userSign)
+
+
   const handleClickToggleMenu = (toggle) => {
     if (toggleMenuValue === false) {
       toggle = true
@@ -23,9 +26,9 @@ function Menu() {
     }
     dispatch(changedToggleMenu(toggle))
   }
-  // ${toggleMenuValue === true ? 'toggleMenuTrue' : ''}
+
   return (
-    <nav className={`menu ${toggleMenuValue === true ? 'toggleMenuTrue' : ''}`}>
+    <nav className={`menu ${toggleMenuValue === true ? 'toggleMenuTrue' : ''} ${userSigninValue === true ? '' : 'd-none'}`}>
 
       <div className='c-menu__toggleMenuFalse' onClick={handleClickToggleMenu}><FontAwesomeIcon className='c-menu__iconToggleMenuFalse' icon="fa-chevron-left" /></div>
 

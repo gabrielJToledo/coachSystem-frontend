@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux'
-import { setToggleMenu } from './menuReducer'
+import { setToggleMenu, setUserSignin, setUserPayload } from './menuReducer'
 
 const reducers = combineReducers({
-    setToggleMenu
+    setToggleMenu,
+    setUserSignin,
+    setUserPayload
+
 })
 
 export default reducers
