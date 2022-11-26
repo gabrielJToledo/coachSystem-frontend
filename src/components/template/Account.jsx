@@ -7,9 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector } from 'react-redux'
 
 function Account() {
-    // ToggleMenu | UserSignin //
+    // ToggleMenu | UserSignin | currentUser //
     const toggleMenuValue = useSelector((state) => state.setToggleMenu.toggleMenuValue)
     const userSigninValue = useSelector((state) => state.setUserSignin.userSign)
+    const currentUser = useSelector((state) => state.setUserPayload.userPayload)
 
     return (
         <section className={`c-accountContainer ${toggleMenuValue === true ? 'toggleMenuTrue' : ''} ${userSigninValue === true ? '' : 'd-none'}`} >
@@ -20,7 +21,7 @@ function Account() {
             <div className="c-accountContainer__avatarContainer p-0">
                 <Avatar className='c-accountContainer__avatar' name="Skrrith Wellson" size='50' />
                 <div className="c-accountContainer__nameAccount">
-                    <span className='c-accountContainer__span'>Nome da conta</span>
+                    <span className='c-accountContainer__span'>{currentUser.name}</span>
                     <span className='c-accountContainer__spanFunction'>
                         Função
                     </span>

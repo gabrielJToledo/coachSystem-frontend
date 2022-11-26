@@ -3,16 +3,17 @@ import './Auth.css'
 
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { changedUserPayload, changedUserSignin } from '../../redux/actions/menuActions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Auth() {
-  // Dispatch
+  // Dispatch | Navigate
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   // UseSelector
   const userSigninValue = useSelector((state) => state.setUserSignin.userSign)
-  const userPayloadValue = useSelector((state) => state.setUserPayload.userPayload)
 
   // Set States
   const [inputEmail, setInputEmail] = useState()
@@ -36,11 +37,9 @@ function Auth() {
     }).then((e) => {
 
       const userData = e.data
-
       dispatch(changedUserSignin(true))
       dispatch(changedUserPayload(userData))
-      localStorage.setItem('currentUser', userData)
-      localStorage.getItem('currentUser')
+      navigate('/home')
 
     }).catch((err) => {
 
@@ -60,14 +59,14 @@ function Auth() {
 
           <h2 className='text-center fs-14 h5 my-4'>Faça seu login no CoachSystem</h2>
 
-          <div className="d-flex justify-content-center align-items-center">
-            <form onSubmit={handleClickSubmit} action="" className='d-flex flex-column justify-content-center align-items-center'>
-              <div className="d-flex flex-column my-2">
+          <div className="d-flex justify-content-center align-items-center w-100">
+            <form onSubmit={handleClickSubmit} action="" className='d-flex flex-column justify-content-center align-items-center w-100'>
+              <div className="form__content d-flex flex-column my-2">
                 <label htmlFor="">E-mail: </label>
                 <input onChange={updateInputEmail} className='auth__input py-1 px-2' placeholder='exemplo@exemplo.com.br' type="text" />
               </div>
 
-              <div className="d-flex flex-column my-2">
+              <div className="form__content d-flex flex-column my-2">
                 <label htmlFor="">Password: </label>
                 <input onChange={updateInputPassword} className='auth__input py-1 px-2' type="password" />
               </div>

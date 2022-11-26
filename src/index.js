@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import { BrowserRouter } from 'react-router-dom'
 
 import { Provider } from 'react-redux'
 import store from './redux/store';
+
+import App from './App';
+import Auth from './components/auth/Auth';
 
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -16,6 +18,7 @@ root.render(
     <React.StrictMode>
       <BrowserRouter>
         <App />
+        <Auth />
       </BrowserRouter>
     </React.StrictMode>
   </Provider>

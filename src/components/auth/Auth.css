@@ -30,3 +30,7 @@
     outline: unset;
     border: 0.5 solid black;
 }
+
+.form__content {
+    width: 60%;
+}

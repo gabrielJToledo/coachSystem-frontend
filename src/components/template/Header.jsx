@@ -11,6 +11,7 @@ function Header() {
 
   const toggleMenuValue = useSelector((state) => state.setToggleMenu.toggleMenuValue)
   const userSigninValue = useSelector((state) => state.setUserSignin.userSign)
+  const userPayloadValue = useSelector((state) => state.setUserPayload.userPayload)
 
   const handleClickToggleMenu = (toggle) => {
     if (toggleMenuValue === false) {
@@ -26,8 +27,8 @@ function Header() {
       <div className="toggleMenuContainer" onClick={handleClickToggleMenu} style={{display: toggleMenuValue === true ? 'flex' : 'none'}}>
         <FontAwesomeIcon className='toggleMenuContainer__icon' icon="fa-angle-right" />
       </div>
-      <div className="c-headerContent">
-
+      <div className="w-100 d-flex justify-content-center align-items-center">
+        <h2 className='h4 m-0 fw-800 text-center'>Seja bem vindo ao SystemCoach, {userPayloadValue.name} - Dashboard</h2>
       </div>
     </header>
   )
