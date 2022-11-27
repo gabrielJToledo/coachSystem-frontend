@@ -87,6 +87,9 @@ function Goals() {
             obs: obs,
             email: currentUser.email
         }).then(() => {
+
+            clearState()
+
             toast.success('Meta SMART criada com sucesso!', {
                 position: "top-right",
                 autoClose: 5000,
@@ -98,9 +101,9 @@ function Goals() {
                 theme: "dark",
             });
 
-            clearState()
-
-            window.location.reload(false)
+            setTimeout(() => {
+                window.location.reload(false)
+            }, 3000)
 
         }).catch((err) => {
             console.log(err)
@@ -169,7 +172,7 @@ function Goals() {
     } else {
         return (
             <div className="ola">
-                ioasjdioas
+                {goalDB.goal}
             </div>
         )
     }
