@@ -14,6 +14,7 @@ function Auth() {
 
   // UseSelector
   const userSigninValue = useSelector((state) => state.setUserSignin.userSign)
+  const userPayload = useSelector((state) => state.setUserPayload.userPayload)
 
   // Set States
   const [inputEmail, setInputEmail] = useState()
@@ -25,6 +26,19 @@ function Auth() {
   }
   const updateInputPassword = (e) => {
     setInputPassword({ password: e.target.value })
+  }
+
+  useEffect(() => {
+    if (window.localStorage.payloadUser != undefined) {
+      dispatch(changedUserSignin(true))
+      dispatch(changedUserPayload(JSON.parse(window.localStorage.payloadUser)))
+      navigate('/home')
+    }
+  }, [])
+
+  if ((Date.now() / 1000) > userPayload.exp) {
+    localStorage.clear()
+    window.location.reload(false)
   }
 
   const handleClickSubmit = (e) => {
@@ -40,6 +54,8 @@ function Auth() {
       dispatch(changedUserSignin(true))
       dispatch(changedUserPayload(userData))
       navigate('/home')
+
+      window.localStorage.setItem('payloadUser', JSON.stringify(e.data))
 
     }).catch((err) => {
 
