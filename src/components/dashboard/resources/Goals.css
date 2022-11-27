@@ -1,0 +1,11 @@
+.grey {
+    color: gray;
+}
+
+.goalsWithoutDB__click {
+    cursor: pointer;
+}
+
+.outline-none {
+    outline: unset;
+}
