@@ -4,18 +4,8 @@ import axios from 'axios'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { ToastContainer, toast } from 'react-toastify';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import './Goals.css'
-
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-    },
-};
 
 function Goals() {
     const [goalDB, setGoalDB] = useState()
@@ -27,6 +17,8 @@ function Goals() {
     const [endData, setEndData] = useState()
     const [obs, setObs] = useState()
     const [modalValue, setModalValue] = useState(false)
+
+    console.log(goalDB)
 
     const currentUser = useSelector((state) => state.setUserPayload.userPayload)
 
@@ -76,6 +68,7 @@ function Goals() {
         }
     }
 
+    // Submit Form
     const handleClickGoalForm = () => {
         axios.post('http://localhost:5000/goals', {
             goal: currentGoal,
@@ -90,15 +83,15 @@ function Goals() {
 
             clearState()
 
-            toast.success('Meta SMART criada com sucesso!', {
-                position: "top-right",
+            toast('Meta SMART Cadastrada com Sucesso!', {
+                position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "dark",
+                theme: "light",
             });
 
             setTimeout(() => {
@@ -164,15 +157,28 @@ function Goals() {
                         <Button onClick={handleClickGoalForm}>Enviar</Button>
                         <Button onClick={handleClickModal}>Close</Button>
                     </Modal.Footer>
-                    <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark"
+                    <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light"
                     />
                 </Modal>
             </div>
         )
     } else {
         return (
-            <div className="ola">
-                {goalDB.goal}
+            <div className="goalsDB__container bg-info h-100">
+                <div className="goal__content p-2 px-3 border rounded m-2 bg-white shadow-sm">
+                    <h3 className='h6 text-center'>{goalDB.goal}</h3>
+                    <ProgressBar className='my-2' animated now={45} label={`45%`} />
+                    <div className="d-flex my-2">
+                        <div className="d-flex flex-column align-items-center my-2 w-50">
+                            <p className='m-0 my-1'>Data de Início: {goalDB.startData}</p>
+                            <p className='m-0 my-1'>Data de Início: {goalDB.endData}</p>
+                        </div>
+
+                        <div className="d-flex justify-content-center align-items-center w-50">
+                            <button type="button" className="btn btn-primary btn-sm">Acessar Meta Inteira</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

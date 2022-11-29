@@ -9,7 +9,6 @@ import App from './App';
 import Auth from './components/auth/Auth';
 
 import 'react-toastify/dist/ReactToastify.css';
-
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(fas)
