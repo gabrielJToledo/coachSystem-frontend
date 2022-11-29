@@ -4,7 +4,6 @@ import axios from 'axios'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { ToastContainer, toast } from 'react-toastify';
-import ProgressBar from 'react-bootstrap/ProgressBar';
 import { changedPlusIconGoal } from '../../../redux/actions/menuActions'
 
 function ModalGoal() {
@@ -105,12 +104,6 @@ function ModalGoal() {
         })
     }
 
-    // Porcentage Funcionality
-    const calculatePercentage = (totalPercentage = 100, desiredPercentage, currentPercentage, percentageAchieved) => {
-        percentageAchieved = (totalPercentage * currentPercentage) / desiredPercentage
-
-        return parseInt(percentageAchieved)
-    }
     return (
         <Modal
             size='lg'
