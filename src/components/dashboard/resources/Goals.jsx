@@ -165,20 +165,22 @@ function Goals() {
     } else {
         return (
             <div className="goalsDB__container bg-info h-100">
-                <div className="goal__content p-2 px-3 border rounded m-2 bg-white shadow-sm">
-                    <h3 className='h6 text-center'>{goalDB.goal}</h3>
-                    <ProgressBar className='my-2' animated now={45} label={`45%`} />
-                    <div className="d-flex my-2">
-                        <div className="d-flex flex-column align-items-center my-2 w-50">
-                            <p className='m-0 my-1'>Data de Início: {goalDB.startData}</p>
-                            <p className='m-0 my-1'>Data de Início: {goalDB.endData}</p>
-                        </div>
+                {goalDB.map((goalDB, index) => {
+                    return <div className="goal__content p-2 px-3 border rounded m-2 bg-white shadow-sm">
+                        <h3 className='h6 text-center'>{goalDB.goal}</h3>
+                        <ProgressBar className='my-2' animated now={45} label={`45%`} />
+                        <div className="d-flex my-2">
+                            <div className="d-flex flex-column align-items-center my-2 w-50">
+                                <p className='m-0 my-1'>Data de Início: {goalDB.startData}</p>
+                                <p className='m-0 my-1'>Data de Início: {goalDB.endData}</p>
+                            </div>
 
-                        <div className="d-flex justify-content-center align-items-center w-50">
-                            <button type="button" className="btn btn-primary btn-sm">Acessar Meta Inteira</button>
+                            <div className="d-flex justify-content-center align-items-center w-50">
+                                <button type="button" className="btn btn-primary btn-sm">Acessar Meta Inteira</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                })}
             </div>
         )
     }
