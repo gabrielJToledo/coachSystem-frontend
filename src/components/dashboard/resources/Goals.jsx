@@ -18,8 +18,6 @@ function Goals() {
     const [obs, setObs] = useState()
     const [modalValue, setModalValue] = useState(false)
 
-    console.log(goalDB)
-
     const currentUser = useSelector((state) => state.setUserPayload.userPayload)
 
     const setGoal = (e) => {
@@ -103,6 +101,14 @@ function Goals() {
         })
     }
 
+    // Porcentage Funcionality
+    const calculatePercentage = (totalPercentage = 100, desiredPercentage, currentPercentage, percentageAchieved) => {
+        percentageAchieved = (totalPercentage * currentPercentage) / desiredPercentage
+
+        return percentageAchieved
+    }
+
+
     if (!goalDB) {
         return (
             <div className="goalsWithoutDB__container h-100">
@@ -168,7 +174,7 @@ function Goals() {
                 {goalDB.map((goalDB, index) => {
                     return <div className="goal__content p-2 px-3 border rounded m-2 bg-white shadow-sm">
                         <h3 className='h6 text-center'>{goalDB.goal}</h3>
-                        <ProgressBar className='my-2' animated now={45} label={`45%`} />
+                        <ProgressBar className='my-2' animated now={calculatePercentage(100, goalDB.goalPercentage, goalDB.currentPercentage)} label={`${calculatePercentage(100, goalDB.goalPercentage, goalDB.currentPercentage)}%`} />
                         <div className="d-flex my-2">
                             <div className="d-flex flex-column align-items-center my-2 w-50">
                                 <p className='m-0 my-1'>Data de Início: {goalDB.startData}</p>
