@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { changedPlusIconGoal } from '../../redux/actions/menuActions'
 import './Home.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,7 +8,9 @@ import axios from 'axios'
 import Goals from './resources/Goals'
 
 function Home() {
-  const [goalDB, setGoalDB] = useState()
+  const dispatch = useDispatch()
+  const [goalDB, setGoalDB] = useState([])
+  const plusGoalValue = useSelector((state) => state.setPlusGoalValue.plusGoalValue)
   const currentUser = useSelector((state) => state.setUserPayload.userPayload)
 
   useEffect(() => {
@@ -15,6 +18,14 @@ function Home() {
       setGoalDB(res.data)
     })
   }, [])
+
+  const setPlusGoalValue = () => {
+    if(plusGoalValue === false) {
+      dispatch(changedPlusIconGoal(true))
+    } else {
+      dispatch(changedPlusIconGoal(false))
+    }
+  }
 
   return (
     <div className="dashboard__container d-flex flex-column flex-wrap w-100 h-100 p-3">
@@ -26,7 +37,7 @@ function Home() {
               <h2 className='h5 m-0 px-2'>Metas</h2>
             </div>
 
-            {goalDB != undefined && <FontAwesomeIcon className='plusIcon' icon="fa-solid fa-plus" />}
+            {goalDB.length != 0 && <FontAwesomeIcon onClick={setPlusGoalValue} className='plusIcon' icon="fa-solid fa-plus" />}
           </div>
 
           <Goals />

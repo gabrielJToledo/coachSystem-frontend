@@ -3,7 +3,8 @@ import { actionTypes } from "../constants/actionTypes";
 const defaultState = {
     toggleMenuValue: false,
     userSign: false,
-    userPayload: {}
+    userPayload: {},
+    plusGoalValue: false
 }
 
 export function setToggleMenu(state = defaultState, {type, payload}) {
@@ -36,5 +37,16 @@ export function setUserPayload(state = defaultState, {type, payload}) {
             }
         default:
             return state 
+    }
+}
+
+export function setPlusGoalValue(state = defaultState, {type, payload}) {
+    switch (type) {
+        case actionTypes.changedPlusIconGoal:
+            return {
+                ...state, plusGoalValue: payload
+            }
+        default:
+            return state
     }
 }

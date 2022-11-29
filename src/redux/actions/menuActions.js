@@ -20,3 +20,10 @@ export const changedUserPayload = (userPayload) => {
         payload: userPayload
     }
 }
+
+export const changedPlusIconGoal = (plusValue) => {
+    return {
+        type: actionTypes.changedPlusIconGoal,
+        payload: plusValue
+    }
+}
