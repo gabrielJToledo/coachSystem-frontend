@@ -4,6 +4,7 @@ import axios from 'axios'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { ToastContainer, toast } from 'react-toastify';
+import InputMask from 'react-input-mask';
 import { changedPlusIconGoal } from '../../../redux/actions/menuActions'
 
 function ModalGoal() {
@@ -134,12 +135,12 @@ function ModalGoal() {
                     <div className="d-flex">
                         <div className="d-flex flex-column w-25">
                             <label className='my-1' htmlFor="">Qual a data de início?</label>
-                            <input onChange={setFormStartData} className='p-2 outline-none py-1' type="text" required value={startData} />
+                            <InputMask onChange={setFormStartData} className='p-2 outline-none py-1' mask="99/99/9999" value={startData}/>
                         </div>
 
                         <div className="d-flex flex-column w-25 mx-3">
                             <label className='my-1' htmlFor="">Qual é a data final?</label>
-                            <input onChange={setFormEndData} className='p-2 outline-none py-1' type="text" required value={endData} />
+                            <InputMask onChange={setFormEndData} className='p-2 outline-none py-1' mask="99/99/9999" value={endData}/>
                         </div>
                     </div>
 
